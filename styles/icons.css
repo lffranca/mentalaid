@@ -1,0 +1,32 @@
+div.icon {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+div.icon.margin-bottom {
+    margin-bottom: 10px;
+}
+
+div.icon.margin-right {
+    margin-right: 10px;
+}
+
+div.profile-icon {
+    background-image: url(../assets/icons/account-circle.svg);
+}
+
+div.timer-icon {
+    background-image: url(../assets/icons/timer-outline.svg);
+}
+
+div.play-icon {
+    background-image: url(../assets/icons/play-circle.svg);
+}
+
+div.dashboard-icon {
+    background-image: url(../assets/icons/view-dashboard.svg);
+}
