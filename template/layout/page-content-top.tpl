@@ -12,6 +12,6 @@
                     {{end}}
                 {{end}}
             </div>
-
+            <div class="page-container">
             <!-- INIT CONTENT PAGE -->
 {{end}}

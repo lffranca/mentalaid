@@ -22,10 +22,18 @@
 
   .container {
     flex: 1;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
     padding: 15px;
 
     .breadcrumbs {
       color: rgb(138, 147, 160);
+      margin-bottom: 10px;
+    }
+
+    .page-container {
+      flex: 1;
     }
   }
 }

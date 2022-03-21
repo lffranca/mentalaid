@@ -48,7 +48,7 @@
 @mixin image-center($path, $size: 40%) {
   background-image: url($path);
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   width: $size;
   height: $size;
