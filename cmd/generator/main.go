@@ -1,30 +1,42 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/lffranca/mentalaid/internal/entity"
+	"github.com/lffranca/mentalaid/internal/service"
 	"github.com/lffranca/mentalaid/internal/util"
+	"html/template"
 	"log"
-	"net/http"
 	"os"
 )
 
 func main() {
-	r := gin.Default()
-
 	files, err := util.ReadFile(os.Getenv("TEMPLATE_PATH"))
 	if err != nil {
 		log.Panicln(err)
 	}
 
-	r.LoadHTMLFiles(files...)
+	templ := template.Must(
+		template.
+			New("").
+			Funcs(util.GetFuncMaps()).
+			ParseFiles(files...))
 
-	r.Static("/assets", os.Getenv("ASSETS_PATH"))
+	pageGenerator := service.NewPageGenerator(os.Getenv("PUBLIC_PATH"), templ)
 
-	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.tpl", gin.H{})
-	})
+	for key, item := range entity.GetRouteIdentifyMap() {
+		if err := pageGenerator.Generate(key, item); err != nil {
+			log.Println(err)
+		}
+	}
+}
 
-	if err := r.Run(); err != nil {
-		log.Panicln(err)
+func init() {
+	for _, envVar := range []string{
+		"TEMPLATE_PATH",
+		"PUBLIC_PATH",
+	} {
+		if _, ok := os.LookupEnv(envVar); !ok {
+			log.Panicf("Required enviroment variable not set: %s\n", envVar)
+		}
 	}
 }

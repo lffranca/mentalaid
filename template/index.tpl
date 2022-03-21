@@ -1,5 +1,5 @@
 {{define "index.tpl"}}
-{{template "layout/top.tpl"}}
-    <h1>INDEX HTML</h1>
-{{template "layout/bottom.tpl"}}
+{{template "layout/page-content-top.tpl" .}}
+<h1>INDEX</h1>
+{{template "layout/page-content-bottom.tpl" .}}
 {{end}}
