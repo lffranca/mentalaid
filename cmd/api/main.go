@@ -22,33 +22,23 @@ func main() {
 
 	r.Static("/assets", os.Getenv("ASSETS_PATH"))
 
-	r.GET("/", func(c *gin.Context) {
-		route, routes := entity.GetRouteIdentifyMapToRoute(entity.RouteIdentifyIndex)
-		c.HTML(http.StatusOK, "index.tpl", gin.H{
-			"Route":  route,
-			"Routes": routes,
-		})
-	})
+	for key, item := range entity.GetRouteIdentifyMap() {
+		if item.Index {
+			r.GET("/", func(c *gin.Context) {
+				c.Redirect(http.StatusPermanentRedirect, item.Path)
+			})
+		}
 
-	r.GET("/index.html", func(c *gin.Context) {
-		c.Redirect(http.StatusPermanentRedirect, "/")
-	})
-
-	r.GET("/timer.html", func(c *gin.Context) {
-		route, routes := entity.GetRouteIdentifyMapToRoute(entity.RouteIdentifyTimer)
-		c.HTML(http.StatusOK, "timer.tpl", gin.H{
-			"Route":  route,
-			"Routes": routes,
-		})
-	})
-
-	r.GET("/play.html", func(c *gin.Context) {
-		route, routes := entity.GetRouteIdentifyMapToRoute(entity.RouteIdentifyPlay)
-		c.HTML(http.StatusOK, "play.tpl", gin.H{
-			"Route":  route,
-			"Routes": routes,
-		})
-	})
+		r.GET(item.Path, func(keyParent entity.RouteIdentify, itemParent entity.Route) gin.HandlerFunc {
+			route, routes := entity.GetRouteIdentifyMapToRoute(keyParent)
+			return func(c *gin.Context) {
+				c.HTML(http.StatusOK, itemParent.Template, gin.H{
+					"Route":  route,
+					"Routes": routes,
+				})
+			}
+		}(key, item))
+	}
 
 	if err := r.Run(); err != nil {
 		log.Panicln(err)

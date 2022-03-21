@@ -4,6 +4,7 @@ type RouteIdentify int
 
 const (
 	RouteIdentifyIndex RouteIdentify = iota + 1
+	RouteIdentifyChat
 	RouteIdentifyPlay
 	RouteIdentifyTimer
 )
@@ -12,6 +13,10 @@ func GetBreadcrumbsMap() map[RouteIdentify][]RouteIdentify {
 	return map[RouteIdentify][]RouteIdentify{
 		RouteIdentifyIndex: {
 			RouteIdentifyIndex,
+		},
+		RouteIdentifyChat: {
+			RouteIdentifyIndex,
+			RouteIdentifyChat,
 		},
 		RouteIdentifyTimer: {
 			RouteIdentifyIndex,
@@ -27,10 +32,17 @@ func GetBreadcrumbsMap() map[RouteIdentify][]RouteIdentify {
 func GetRouteIdentifyMap() map[RouteIdentify]Route {
 	return map[RouteIdentify]Route{
 		RouteIdentifyIndex: {
+			Index:     true,
 			Template:  "index.tpl",
 			Path:      "index.html",
 			ClassIcon: "fa-solid fa-chart-line",
 			Title:     "Dashboard",
+		},
+		RouteIdentifyChat: {
+			Template:  "chat.tpl",
+			Path:      "chat.html",
+			ClassIcon: "fa-solid fa-comment",
+			Title:     "Chat",
 		},
 		RouteIdentifyTimer: {
 			Template:  "timer.tpl",
@@ -63,6 +75,7 @@ func GetRouteIdentifyMapToRoute(key RouteIdentify) (route Route, routes map[Rout
 }
 
 type Route struct {
+	Index       bool
 	Template    string
 	Path        string
 	ClassIcon   string

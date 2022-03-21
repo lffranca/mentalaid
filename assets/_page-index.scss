@@ -31,12 +31,6 @@
       &.graph-01- {
         @include mixins.image-center("../../assets/images/seletorHumor.jpeg", none);
       }
-      //&.graph-02- {
-      //  @include mixins.image-center("../../assets/images/chart_02.svg", none);
-      //}
-      //&.graph-03- {
-      //  @include mixins.image-center("../../assets/images/chart_03.svg", none);
-      //}
       &.graph-01 {
         @include mixins.image-center("../../assets/images/chart_01.svg", none);
       }
@@ -57,5 +51,4 @@
       }
     }
   }
-
 }
