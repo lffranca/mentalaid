@@ -1,0 +1,50 @@
+.page-play {
+  .seletor {
+    text-align: center;
+
+    &.video {
+      margin: 2%;
+      padding: 1%;
+      height: 280px;
+
+      div {
+        margin: 0 2%;
+        padding: 0;
+        height: 100%;
+        width: 27%;
+        display: inline-block;
+        background-color: #0e0d0d;
+        justify-content: space-between;
+        align-items: stretch;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position-x: center;
+
+        &.video1 {
+          background-image: url("../../assets/images/videoRecomendado1.jpg");
+        }
+        &.video2 {
+          background-image: url("../../assets/images/videoRecomendado2.jpg");
+        }
+        &.video3 {
+          background-image: url("../../assets/images/videoRecomendado3.jpg");
+        }
+      }
+    }
+
+    &.podcast {
+      height: 200px;
+      width: 100%;
+      display: inline-block;
+    }
+  }
+
+  .spotify {
+    display: inline-block;
+    height: 200px;
+    width: 100%;
+    background-image: url("../../assets/images/recomendacaoSpotify.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
