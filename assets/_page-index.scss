@@ -1,0 +1,54 @@
+@use "variables";
+@use "mixins";
+
+.page-index {
+  //background-color: variables.$secondary-light;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: stretch;
+
+  .graph-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: stretch;
+
+    .graph-content {
+      flex: 1;
+      margin: 5px;
+      height: 400px;
+      border: 1px solid variables.$color-light;
+      background-color: variables.$color-white;
+
+      &.graph-01- {
+        @include mixins.image-center("../../assets/images/seletorHumor.jpeg", none);
+      }
+      &.graph-01 {
+        @include mixins.image-center("../../assets/images/chart_01.svg", none);
+      }
+      &.graph-02 {
+        @include mixins.image-center("../../assets/images/chart_02.svg", none);
+      }
+      &.graph-03 {
+        @include mixins.image-center("../../assets/images/chart_03.svg", none);
+      }
+      &.graph-04 {
+        @include mixins.image-center("../../assets/images/chart_04.svg", none);
+      }
+      &.graph-05 {
+        @include mixins.image-center("../../assets/images/chart_05.svg", none);
+      }
+      &.graph-06 {
+        @include mixins.image-center("../../assets/images/chart_06.svg", none);
+      }
+    }
+  }
+}

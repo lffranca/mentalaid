@@ -1,0 +1,39 @@
+@use "variables";
+@use "mixins";
+
+.page-content {
+  @include mixins.flex-stretch();
+  flex: 1;
+  background-color: variables.$background-color;
+  header {
+    @include mixins.display-flex(row, null, flex-start);
+
+    height: variables.$header-height;
+    width: calc(100% - 30px);
+    box-shadow: variables.$box-shadow;
+    background-color: variables.$color-white;
+    padding-left: variables.$header-padding;
+    padding-right: variables.$header-padding;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .container {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+
+    .breadcrumbs {
+      color: rgb(138, 147, 160);
+      margin-bottom: 10px;
+    }
+
+    .page-container {
+      flex: 1;
+    }
+  }
+}

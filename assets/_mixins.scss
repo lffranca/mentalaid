@@ -1,0 +1,55 @@
+@mixin flex-center {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+@mixin flex-stretch {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+@mixin display-flex($flex-direction: null, $flex-wrap: null, $justify-content: null, $align-content: null, $align-items: null) {
+  display: flex;
+  @if $flex-direction {
+    flex-direction: $flex-direction;
+  } @else {
+    flex-direction: column;
+  }
+  @if($flex-wrap) {
+    flex-wrap: $flex-wrap;
+  } @else {
+    flex-wrap: nowrap;
+  }
+  @if($justify-content) {
+    justify-content: $justify-content;
+  } @else {
+    justify-content: center;
+  }
+  @if($align-content) {
+    align-content: $align-content;
+  } @else {
+    align-content: center;
+  }
+  @if($align-items) {
+    align-items: $align-items;
+  } @else {
+    align-items: center;
+  }
+}
+
+@mixin image-center($path, $size: 40%) {
+  background-image: url($path);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: $size;
+  height: $size;
+}
