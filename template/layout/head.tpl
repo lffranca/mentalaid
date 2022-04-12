@@ -6,6 +6,6 @@
     <title>BrainApp</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/styles/index.css">
+    <link rel="stylesheet" href="assets/styles/index.css?time={{now}}">
 </head>
 {{ end }}

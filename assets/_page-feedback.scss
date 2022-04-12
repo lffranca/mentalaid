@@ -1,0 +1,64 @@
+@use "variables";
+
+.page-feedback {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+
+  .content {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+
+    .title {
+      text-align: center;
+      color: variables.$primary-dark;
+    }
+
+    label {
+      color: variables.$primary-dark;
+      font-weight: 900;
+      margin-bottom: 3px;
+    }
+
+    input {
+      margin-bottom: 15px;
+      height: 40px;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+  .button-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+
+    button {
+      background-color: variables.$primary;
+      color: variables.$color-white;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      width: 200px;
+      margin-top: 20px;
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(variables.$primary, 0.8);
+      }
+    }
+  }
+
+  }
+}

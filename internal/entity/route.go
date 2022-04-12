@@ -6,6 +6,7 @@ const (
 	RouteIdentifyIndex RouteIdentify = iota + 1
 	RouteIdentifyChat
 	RouteIdentifyPlay
+	RouteIdentifyFeedback
 )
 
 func GetBreadcrumbsMap() map[RouteIdentify][]RouteIdentify {
@@ -20,6 +21,10 @@ func GetBreadcrumbsMap() map[RouteIdentify][]RouteIdentify {
 		RouteIdentifyPlay: {
 			RouteIdentifyIndex,
 			RouteIdentifyPlay,
+		},
+		RouteIdentifyFeedback: {
+			RouteIdentifyIndex,
+			RouteIdentifyFeedback,
 		},
 	}
 }
@@ -36,7 +41,7 @@ func GetRouteIdentifyMap() map[RouteIdentify]Route {
 		RouteIdentifyChat: {
 			Template:  "chat.tpl",
 			Path:      "chat.html",
-			ClassIcon: "fa-solid fa-comment",
+			ClassIcon: "fas fa-comments",
 			Title:     "Chat",
 		},
 		RouteIdentifyPlay: {
@@ -44,6 +49,12 @@ func GetRouteIdentifyMap() map[RouteIdentify]Route {
 			Path:      "play.html",
 			ClassIcon: "fa-solid fa-circle-play",
 			Title:     "Play",
+		},
+		RouteIdentifyFeedback: {
+			Template:  "feedback.tpl",
+			Path:      "feedback.html",
+			ClassIcon: "fa-solid fa-comment",
+			Title:     "Comments",
 		},
 	}
 }
